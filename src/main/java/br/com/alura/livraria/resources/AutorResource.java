@@ -1,4 +1,4 @@
-package br.com.alura.livraria.controller;
+package br.com.alura.livraria.resources;
 
 import br.com.alura.livraria.dto.AutorDto;
 import br.com.alura.livraria.dto.AutorFormDto;
@@ -18,7 +18,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/autores")
-public class AutorController {
+public class AutorResource {
 
     @Autowired
     private AutorService autorService;

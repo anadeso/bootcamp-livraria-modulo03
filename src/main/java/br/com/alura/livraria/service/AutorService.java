@@ -3,7 +3,7 @@ package br.com.alura.livraria.service;
 import br.com.alura.livraria.dto.AutorDto;
 import br.com.alura.livraria.dto.AutorFormDto;
 
-import br.com.alura.livraria.modelo.Autor;
+import br.com.alura.livraria.entities.Autor;
 
 import org.modelmapper.ModelMapper;
 

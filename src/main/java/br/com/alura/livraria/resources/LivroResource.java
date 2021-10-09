@@ -1,4 +1,4 @@
-package br.com.alura.livraria.controller;
+package br.com.alura.livraria.resources;
 
 import br.com.alura.livraria.dto.LivroDto;
 import br.com.alura.livraria.dto.LivroFormDto;
@@ -12,7 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/livros")
-public class LivroController {
+public class LivroResource {
 
     @Autowired
     private LivroService livroService;

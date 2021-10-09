@@ -1,6 +1,6 @@
 package br.com.alura.livraria.dto;
 
-import br.com.alura.livraria.modelo.Autor;
+import br.com.alura.livraria.entities.Autor;
 import lombok.Getter;
 import lombok.Setter;
 
