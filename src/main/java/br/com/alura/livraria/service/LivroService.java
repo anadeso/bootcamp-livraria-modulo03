@@ -5,31 +5,30 @@ import br.com.alura.livraria.dto.LivroFormDto;
 
 import br.com.alura.livraria.entities.Livro;
 
+import br.com.alura.livraria.repositories.LivroRepository;
 import org.modelmapper.ModelMapper;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
 public class LivroService {
 
-    private List<Livro> livros = new ArrayList<>();
+    @Autowired
+    private LivroRepository livroRepository;
     private ModelMapper modelMapper = new ModelMapper();
 
     public List<LivroDto> listar() {
-        List<LivroDto> collect = livros.stream()
-                .map(x -> modelMapper.map(x, LivroDto.class))
+        List<Livro> livros = livroRepository.findAll();
+        return livros.stream().map(x -> modelMapper.map(x, LivroDto.class))
                 .collect(Collectors.toList());
-
-        return collect;
     }
 
     public void cadastrar(LivroFormDto livroFormDto) {
         Livro livro = modelMapper.map(livroFormDto, Livro.class);
-
-        livros.add(livro);
+        livroRepository.save(livro);
     }
 }

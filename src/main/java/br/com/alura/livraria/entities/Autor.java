@@ -13,6 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Column;
+import javax.validation.constraints.Size;
 
 import java.time.LocalDate;
 
@@ -34,5 +35,6 @@ public class Autor {
     private LocalDate dataNascimento;
     @JsonInclude(JsonInclude.Include.NON_NULL)
     @Column(name = "curriculo")
+    @Size(min = 10, max = 300)
     private String miniCurriculo;
 }

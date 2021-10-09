@@ -1,7 +1,6 @@
 package br.com.alura.livraria.dto;
 
-import br.com.alura.livraria.entities.Autor;
-
+import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import lombok.Getter;
@@ -31,5 +30,6 @@ public class LivroFormDto {
     @Min(100)
     private int numeroPagina;
 
-    private Autor autor;
+    @JsonAlias("autor_id")
+    private Long autorId;
 }
