@@ -36,11 +36,11 @@ Antes de começar, você vai precisar ter instalado em sua máquina as seguintes
 
 Primeiramente, faça o clone do repositório:
 ```
-https://github.com/anadeso/bootcamp-livrariaapirest-modulo02.git
+https://github.com/anadeso/bootcamp-livraria-modulo03.git
 ```
 Feito isso, acesse o projeto:
 ```
-cd bootcamp-livrariaapirest-modulo02
+cd bootcamp-livraria-modulo03.git
 ```
 É preciso compilar o código e baixar as dependências do projeto:
 ```
