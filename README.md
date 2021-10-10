@@ -2,7 +2,7 @@
 
 <p>Implementado camada de persistência em nossa API da Livraria utilizando módulo Spring Data JPA do Spring Boot.
 
-[Bootcamp Módulo 02 - Utilizando Servlet](https://github.com/anadeso/bootcamp-modulo01-livraria)
+[Alura - Bootcamp Módulo 02](https://github.com/anadeso/bootcamp-livrariaapirest-modulo02)
 
 ### Funcionalidades
 - Camada de persistência com o Spring Data JPA
@@ -17,7 +17,8 @@
 
 
 
-
+  
+  
 
 
 ### Pré-requisitos
