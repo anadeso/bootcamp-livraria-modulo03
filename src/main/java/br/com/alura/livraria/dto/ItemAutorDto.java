@@ -7,7 +7,7 @@ import lombok.Getter;
 @AllArgsConstructor
 public class ItemAutorDto {
 
-    private String nome;
+    private String autor;
     private Long quantidadeLivros;
     private Double percentual;
 }
