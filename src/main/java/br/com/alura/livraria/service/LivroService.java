@@ -10,6 +10,7 @@ import org.modelmapper.ModelMapper;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -21,14 +22,17 @@ public class LivroService {
     private LivroRepository livroRepository;
     private ModelMapper modelMapper = new ModelMapper();
 
+    @Transactional(readOnly = true)
     public List<LivroDto> listar() {
         List<Livro> livros = livroRepository.findAll();
         return livros.stream().map(x -> modelMapper.map(x, LivroDto.class))
                 .collect(Collectors.toList());
     }
 
+    @Transactional
     public void cadastrar(LivroFormDto livroFormDto) {
         Livro livro = modelMapper.map(livroFormDto, Livro.class);
+        livro.setId(null);
         livroRepository.save(livro);
     }
 }

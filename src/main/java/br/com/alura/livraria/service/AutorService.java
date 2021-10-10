@@ -11,6 +11,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
@@ -23,12 +24,14 @@ public class AutorService {
     private AutorRepository autorRepository;
     private ModelMapper modelMapper = new ModelMapper();
 
+    @Transactional(readOnly = true)
     public List<AutorDto> listar() {
         List<Autor> autores = autorRepository.findAll();
         return autores.stream().map(x -> modelMapper.map(x, AutorDto.class))
                 .collect(Collectors.toList());
     }
 
+    @Transactional
     public void cadastrar(@RequestBody AutorFormDto autorFormDto) {
         Autor autor = modelMapper.map(autorFormDto, Autor.class);
         autorRepository.save(autor);
