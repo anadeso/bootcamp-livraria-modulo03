@@ -14,12 +14,16 @@
   - Percentual
  
 ### Resultado
+#### Endpoint 
+  - Livros
 
-
-
+  <img width="1004" alt="Captura de Tela 2021-10-10 às 7 43 21 PM" src="https://user-images.githubusercontent.com/19472198/136715275-3f532b8c-7c68-47ab-9be2-a0e8abacabbe.png">
   
-  
+  - Autores 
+<img width="999" alt="Captura de Tela 2021-10-10 às 7 43 59 PM" src="https://user-images.githubusercontent.com/19472198/136715298-8a32604f-4377-42b5-a8aa-7a75026c2326.png">
 
+  - Relatorios
+<img width="1000" alt="Captura de Tela 2021-10-10 às 7 47 34 PM" src="https://user-images.githubusercontent.com/19472198/136715376-b59d2f81-4479-4bbb-baa0-971bde098314.png">
 
 ### Pré-requisitos
 
@@ -58,8 +62,8 @@ As seguintes ferramentas foram usadas na construção do projeto:
 
 - [Java 8](https://www.oracle.com/br/java/technologies/javase/javase-jdk8-downloads.html)
 - [Spring Data JPA](https://spring.io/projects/spring-boot) 
-- [MySQL](https://docs.spring.io/spring-framework/docs/current/reference/html/web.html#mvc)  
-- [Flyway](https://docs.spring.io/spring-framework/docs/current/reference/html/web.html#mvc)  
+- [MySQL](https://www.mysql.com/)  
+- [Flyway](https://flywaydb.org/)  
 
 ### Autor
 ---
