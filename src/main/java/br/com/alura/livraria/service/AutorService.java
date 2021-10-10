@@ -3,12 +3,16 @@ package br.com.alura.livraria.service;
 import br.com.alura.livraria.dto.AutorDto;
 import br.com.alura.livraria.dto.AutorFormDto;
 
+import br.com.alura.livraria.dto.LivroDto;
 import br.com.alura.livraria.entities.Autor;
 
+import br.com.alura.livraria.entities.Livro;
 import br.com.alura.livraria.repositories.AutorRepository;
 import org.modelmapper.ModelMapper;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import org.springframework.transaction.annotation.Transactional;
@@ -25,10 +29,9 @@ public class AutorService {
     private ModelMapper modelMapper = new ModelMapper();
 
     @Transactional(readOnly = true)
-    public List<AutorDto> listar() {
-        List<Autor> autores = autorRepository.findAll();
-        return autores.stream().map(x -> modelMapper.map(x, AutorDto.class))
-                .collect(Collectors.toList());
+    public Page<AutorDto> listar(Pageable paginacao) {
+        Page<Autor> autores = autorRepository.findAll(paginacao);
+        return autores.map(x -> modelMapper.map(x, AutorDto.class));
     }
 
     @Transactional

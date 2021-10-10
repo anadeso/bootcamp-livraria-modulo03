@@ -7,6 +7,9 @@ import br.com.alura.livraria.service.AutorService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,7 +17,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import javax.validation.Valid;
-import java.util.List;
 
 @RestController
 @RequestMapping("/autores")
@@ -24,8 +26,8 @@ public class AutorResource {
     private AutorService autorService;
 
     @GetMapping
-    public List<AutorDto> listar() {
-        return autorService.listar();
+    public Page<AutorDto> listar(@PageableDefault(size = 10) Pageable paginacao) {
+        return autorService.listar(paginacao);
     }
 
     @PostMapping

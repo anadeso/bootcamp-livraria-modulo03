@@ -9,6 +9,8 @@ import br.com.alura.livraria.repositories.LivroRepository;
 import org.modelmapper.ModelMapper;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -23,10 +25,9 @@ public class LivroService {
     private ModelMapper modelMapper = new ModelMapper();
 
     @Transactional(readOnly = true)
-    public List<LivroDto> listar() {
-        List<Livro> livros = livroRepository.findAll();
-        return livros.stream().map(x -> modelMapper.map(x, LivroDto.class))
-                .collect(Collectors.toList());
+    public Page<LivroDto> listar(Pageable paginacao) {
+        Page<Livro> livros = livroRepository.findAll(paginacao);
+        return livros.map(x -> modelMapper.map(x, LivroDto.class));
     }
 
     @Transactional
