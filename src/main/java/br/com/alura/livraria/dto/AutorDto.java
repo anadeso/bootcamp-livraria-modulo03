@@ -10,6 +10,7 @@ import java.time.LocalDate;
 @Setter
 public class AutorDto {
 
+    private Long id;
     private String nome;
     private String email;
     @JsonFormat(pattern = "dd/MM/yyyy")

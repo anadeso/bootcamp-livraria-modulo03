@@ -10,6 +10,7 @@ import java.time.LocalDate;
 @Setter
 public class LivroDto {
 
+    private Long id;
     private String titulo;
     private LocalDate dataLancamento;
     private int numeroPagina;
