@@ -9,14 +9,12 @@ import br.com.alura.livraria.service.AutorService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import javax.validation.Valid;
@@ -30,8 +28,17 @@ public class AutorResource {
     private AutorService autorService;
 
     @GetMapping
-    public Page<AutorDto> listar(@PageableDefault(size = 10) Pageable paginacao) {
-        return autorService.listar(paginacao);
+    public ResponseEntity<Page<AutorDto>> listar(
+            @RequestParam(value = "page", defaultValue = "0") Integer page,
+            @RequestParam(value = "linesPerPage", defaultValue = "12") Integer linesPerPage,
+            @RequestParam(value = "direction", defaultValue = "ASC") String direction,
+            @RequestParam(value = "orderBy", defaultValue = "nome") String orderBy) {
+
+        PageRequest pageRequest = PageRequest.of
+                (page, linesPerPage, Sort.Direction.valueOf(direction), orderBy);
+
+        Page<AutorDto> list = autorService.listar(pageRequest);
+        return ResponseEntity.ok().body(list);
     }
 
     @PostMapping
