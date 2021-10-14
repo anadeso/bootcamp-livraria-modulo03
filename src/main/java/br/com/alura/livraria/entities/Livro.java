@@ -6,13 +6,7 @@ import lombok.ToString;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
-import javax.persistence.Id;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Column;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 import java.time.LocalDate;
 
@@ -34,5 +28,6 @@ public class Livro {
     @Column(name = "numpagina")
     private Integer numeroPagina;
     @ManyToOne
+    @JoinColumn(name = "autor_id")
     private Autor autor;
 }
