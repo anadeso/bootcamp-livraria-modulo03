@@ -32,4 +32,6 @@ public class LivroFormDto {
 
     @JsonAlias("autor_id")
     private Long autorId;
+
+    private AutorFormDto autorFormDto;
 }

@@ -13,7 +13,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Column;
 import javax.persistence.ManyToOne;
-import javax.persistence.JoinColumn;
 
 import java.time.LocalDate;
 
@@ -35,6 +34,5 @@ public class Livro {
     @Column(name = "numpagina")
     private Integer numeroPagina;
     @ManyToOne
-    @JoinColumn(name = "autor_id")
     private Autor autor;
 }
