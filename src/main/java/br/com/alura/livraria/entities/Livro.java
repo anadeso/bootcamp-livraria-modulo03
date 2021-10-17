@@ -23,10 +23,13 @@ public class Livro {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String titulo;
+
     @Column(name = "data")
     private LocalDate dataLancamento;
+
     @Column(name = "numpagina")
     private Integer numeroPagina;
+
     @ManyToOne
     @JoinColumn(name = "autor_id")
     private Autor autor;

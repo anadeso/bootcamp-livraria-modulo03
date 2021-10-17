@@ -28,16 +28,8 @@ public class AutorResource {
     private AutorService autorService;
 
     @GetMapping
-    public ResponseEntity<Page<AutorDto>> listar(
-            @RequestParam(value = "page", defaultValue = "0") Integer page,
-            @RequestParam(value = "linesPerPage", defaultValue = "12") Integer linesPerPage,
-            @RequestParam(value = "direction", defaultValue = "ASC") String direction,
-            @RequestParam(value = "orderBy", defaultValue = "nome") String orderBy) {
-
-        PageRequest pageRequest = PageRequest.of
-                (page, linesPerPage, Sort.Direction.valueOf(direction), orderBy);
-
-        Page<AutorDto> list = autorService.listar(pageRequest);
+    public ResponseEntity<Page<AutorDto>> listar(Pageable pageable) {
+        Page<AutorDto> list = autorService.listar(pageable);
         return ResponseEntity.ok().body(list);
     }
 

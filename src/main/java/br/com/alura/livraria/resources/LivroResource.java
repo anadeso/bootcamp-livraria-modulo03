@@ -7,6 +7,7 @@ import br.com.alura.livraria.service.LivroService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
@@ -31,16 +32,8 @@ public class LivroResource {
     private AutorService autorService;
 
     @GetMapping
-    public ResponseEntity<Page<LivroDto>> listar(
-            @RequestParam(value = "page", defaultValue = "0") Integer page,
-            @RequestParam(value = "linesPerPage", defaultValue = "12") Integer linesPerPage,
-            @RequestParam(value = "direction", defaultValue = "ASC") String direction,
-            @RequestParam(value = "orderBy", defaultValue = "titulo") String orderBy) {
-
-        PageRequest pageRequest = PageRequest.of
-                (page, linesPerPage, Sort.Direction.valueOf(direction), orderBy);
-
-        Page<LivroDto> list = livroService.listar(pageRequest);
+    public ResponseEntity<Page<LivroDto>> listar(Pageable pageable) {
+        Page<LivroDto> list = livroService.listar(pageable);
         return ResponseEntity.ok().body(list);
     }
 

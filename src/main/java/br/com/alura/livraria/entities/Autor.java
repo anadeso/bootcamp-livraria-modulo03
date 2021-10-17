@@ -28,11 +28,14 @@ public class Autor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String nome;
     private String email;
+
     @JsonInclude(JsonInclude.Include.NON_NULL)
     @Column(name = "data")
     private LocalDate dataNascimento;
+
     @JsonInclude(JsonInclude.Include.NON_NULL)
     @Column(name = "curriculo")
     @Size(min = 10, max = 300)
